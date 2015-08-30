@@ -25,18 +25,19 @@ namespace Tests
         {
             var serializer = new WireMessageSerializer(new MessageMapper());
 
-            Person deserialized;
-            var person = new Person { Id = Guid.NewGuid() };
+            Human deserialized;
+            var person = new Human { Id = Guid.NewGuid(), Name = "Igal" };
             using (var s = new MemoryStream())
             {
                 serializer.Serialize(person, s);
 
                 s.Position = 0;
 
-                deserialized = serializer.Deserialize(s, new [] { typeof(Person) }).Cast<Person>().First();
+                deserialized = serializer.Deserialize(s, new [] { typeof(Human) }).Cast<Human>().First();
             }
 
             Assert.AreEqual(deserialized.Id, person.Id);
+            Assert.AreEqual(deserialized.Name, person.Name);
         }
     }
 }

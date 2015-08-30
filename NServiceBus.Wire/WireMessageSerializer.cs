@@ -11,7 +11,8 @@ namespace NServiceBus.Wire
 {
     public class WireMessageSerializer : IMessageSerializer
     {
-        readonly Serializer serializer;
+        MethodInfo deserializationMethod;
+        Serializer serializer;
 
         public WireMessageSerializer(IMessageMapper messageMapper, SerializerOptions options = null)
         {
@@ -30,9 +31,13 @@ namespace NServiceBus.Wire
                 throw new Exception("Wire requires message types to be specified");
             }
 
-            var mi = serializer.GetType().GetMethod("Deserialize");
-            var info = mi.MakeGenericMethod(messageTypes.ToArray());
-            return new [] { info.Invoke(serializer, new[] {stream}) };
+            if (deserializationMethod == null)
+            {
+                deserializationMethod = serializer.GetType().GetMethod("Deserialize");
+            }
+
+            var info = deserializationMethod.MakeGenericMethod(messageTypes.ToArray());
+            return new [] { info.Invoke(serializer, new[] { stream }) };
         }
 
         IEnumerable<Type> FindRootTypes(IEnumerable<Type> messageTypesToDeserialize)
