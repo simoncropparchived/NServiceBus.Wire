@@ -62,7 +62,7 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Transactions" />
     <Reference Include="Wire, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wire.0.0.3\lib\Wire.dll</HintPath>
+      <HintPath>..\packages\Wire.0.0.4\lib\Wire.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>

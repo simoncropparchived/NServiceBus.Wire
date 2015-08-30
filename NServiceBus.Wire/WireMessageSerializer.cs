@@ -26,37 +26,7 @@ namespace NServiceBus.Wire
 
         public object[] Deserialize(Stream stream, IList<Type> messageTypes = null)
         {
-            if (messageTypes == null || !messageTypes.Any())
-            {
-                throw new Exception("Wire requires message types to be specified");
-            }
-
-            if (deserializationMethod == null)
-            {
-                deserializationMethod = serializer.GetType().GetMethod("Deserialize");
-            }
-
-            var info = deserializationMethod.MakeGenericMethod(messageTypes.ToArray());
-            return new [] { info.Invoke(serializer, new[] { stream }) };
-        }
-
-        IEnumerable<Type> FindRootTypes(IEnumerable<Type> messageTypesToDeserialize)
-        {
-            Type currentRoot = null;
-            foreach (var type in messageTypesToDeserialize)
-            {
-                if (currentRoot == null)
-                {
-                    currentRoot = type;
-                    yield return currentRoot;
-                    continue;
-                }
-                if (!type.IsAssignableFrom(currentRoot))
-                {
-                    currentRoot = type;
-                    yield return currentRoot;
-                }
-            }
+            return new [] { serializer.Deserialize(stream) };
         }
 
         public string ContentType

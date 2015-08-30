@@ -33,7 +33,7 @@ namespace Tests
 
                 s.Position = 0;
 
-                deserialized = serializer.Deserialize(s, new [] { typeof(Human) }).Cast<Human>().First();
+                deserialized = serializer.Deserialize(s).Cast<Human>().First();
             }
 
             Assert.AreEqual(deserialized.Id, person.Id);
