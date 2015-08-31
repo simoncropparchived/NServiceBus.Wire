@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>NServiceBus.Wire</id>
+    <version>$version$</version>
+    <title>NServiceBus.Wire</title>
+    <authors>Igal Tabachnik</authors>
+    <owners>Igal Tabachnik</owners>
+    <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
+    <projectUrl>http://github.com/hmemcpy/NServiceBus.Wire</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <iconUrl>https://raw.githubusercontent.com/hmemcpy/NServiceBus.Wire/master/icon.png</iconUrl>
+    <description>Wire (https://github.com/rogeralsing/Wire) serializer for NServiceBus.</description>
+    <language>en-AU</language>
+    <tags>NServiceBus, Wire, Serialization, Akka</tags>
+    <dependencies>
+      <dependency id="NServiceBus" version="[5.0.0, 6.0.0)" />
+      <dependency id="Wire" version="(,1.0]" />
+    </dependencies>
+  </metadata>
+</package>
