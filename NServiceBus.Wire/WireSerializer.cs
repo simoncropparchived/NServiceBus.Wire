@@ -1,13 +1,26 @@
-﻿using System;
-using NServiceBus.Serialization;
-
-namespace NServiceBus.Wire
+﻿namespace NServiceBus.Wire
 {
+    using System;
+    using MessageInterfaces;
+    using Serialization;
+    using Settings;
+
+    /// <summary>
+    /// Defines the capabilities of the Wire serializer
+    /// </summary>
     public class WireSerializer : SerializationDefinition
     {
-        protected override Type ProvidedByFeature()
+        /// <summary>
+        /// <see cref="SerializationDefinition.Configure"/>
+        /// </summary>
+        public override Func<IMessageMapper, IMessageSerializer> Configure(ReadOnlySettings settings)
         {
-            return typeof (WireSerialization);
+            return mapper =>
+            {
+                var options = settings.GetOptions();
+                var contentTypeKey = settings.GetContentTypeKey();
+                return new WireMessageSerializer(contentTypeKey, options);
+            };
         }
     }
 }

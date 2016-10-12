@@ -1,26 +1,43 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Reflection;
-using NServiceBus.MessageInterfaces;
 using NServiceBus.Serialization;
 using Wire;
 
 namespace NServiceBus.Wire
 {
-    public class WireMessageSerializer : IMessageSerializer
+    class WireMessageSerializer : IMessageSerializer
     {
-        MethodInfo deserializationMethod;
         Serializer serializer;
 
-        public WireMessageSerializer(IMessageMapper messageMapper, SerializerOptions options = null)
+        public WireMessageSerializer(string contentType, SerializerOptions options)
         {
-            serializer = options == null ? new Serializer() : new Serializer(options);
+            if (options == null)
+            {
+                serializer = new Serializer();
+            }
+            else
+            {
+                serializer = new Serializer(options);
+            }
+
+            if (contentType == null)
+            {
+                ContentType = "wire";
+            }
+            else
+            {
+                ContentType = contentType;
+            }
         }
 
         public void Serialize(object message, Stream stream)
         {
+            var messageType = message.GetType();
+            if (messageType.Name.EndsWith("__impl"))
+            {
+                throw new Exception("Interface based message are not currently supported. Create a class that implements the desired interface.");
+            }
             serializer.Serialize(message, stream);
         }
 
@@ -29,9 +46,6 @@ namespace NServiceBus.Wire
             return new [] { serializer.Deserialize(stream) };
         }
 
-        public string ContentType
-        {
-            get { return ContentTypes.Binary; }
-        }
+        public string ContentType { get; }
     }
 }
