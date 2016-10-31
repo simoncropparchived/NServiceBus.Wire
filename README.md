@@ -13,12 +13,11 @@ https://www.nuget.org/packages/NServiceBus.Wire
     PM> Install-Package NServiceBus.Wire
 
 
-## Usage
+## Documentation
 
-Add to your Bus/Endpoint configuration:
+https://docs.particular.net/nservicebus/serialization/wire
 
-```
-configuration.UserSerialization<WireSerializer>();
-```
+
+## Icon
 
 Icon [Insulated Wire](https://thenounproject.com/term/insulated-wire/116162) (CC BY 3.0) designed by Arthur Shlain from the [Noun Project](http://www.thenounproject.com).
