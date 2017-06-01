@@ -1,82 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{29ED7A0C-9A61-4416-A020-AAB1E1C5C743}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>NServiceBus.Wire</RootNamespace>
-    <AssemblyName>NServiceBus.Wire</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
+    <TargetFramework>net452</TargetFramework>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\NServiceBus.Wire.xml</DocumentationFile>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\NServiceBus.Wire.xml</DocumentationFile>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <DocumentationFile>$(ProjectDir)bin\$(Configuration)\$(AssemblyName).xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="NServiceBus.Core, Version=6.0.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c, processorArchitecture=MSIL">
-      <HintPath>..\packages\NServiceBus.6.0.0\lib\net452\NServiceBus.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Wire, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wire.0.8.1\lib\net45\Wire.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
+    <PackageReference Include="NServiceBus" Version="6.3.2" />
+    <PackageReference Include="Wire" Version="0.8.1" />
+    <PackageReference Include="PepitaPackage" Version="1.21.4" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Guard.cs" />
-    <Compile Include="WireConfigurationExtensions.cs" />
-    <Compile Include="WireMessageSerializer.cs" />
-    <Compile Include="WireSerializer.cs" />
-    <Compile Include="AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="NServiceBus.Wire.nuspec">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="packages.config">
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Target Name="AfterBuild">
+  <Target Name="NuGetBuild" AfterTargets="AfterBuild">
     <ItemGroup>
       <FilesToDelete Include="$(SolutionDir)NuGetBuild\**\*.*" />
     </ItemGroup>
     <Delete Files="@(FilesToDelete)" />
-    <Copy SourceFiles="$(OutputPath)NServiceBus.Wire.dll" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\NET45" />
-    <Copy SourceFiles="$(OutputPath)NServiceBus.Wire.pdb" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\NET45" />
-    <Copy SourceFiles="$(OutputPath)NServiceBus.Wire.xml" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\NET45" />
+    <Copy SourceFiles="$(OutputPath)NServiceBus.Wire.dll" DestinationFolder="$(SolutionDir)NuGetBuild\lib\net452" />
+    <Copy SourceFiles="$(OutputPath)NServiceBus.Wire.pdb" DestinationFolder="$(SolutionDir)NuGetBuild\lib\net452" />
+    <Copy SourceFiles="$(OutputPath)NServiceBus.Wire.xml" DestinationFolder="$(SolutionDir)NuGetBuild\lib\net452" />
     <Copy SourceFiles="$(ProjectDir)NServiceBus.Wire.nuspec" DestinationFolder="$(SolutionDir)NuGetBuild" />
     <PepitaPackage.CreatePackageTask NuGetBuildDirectory="$(SolutionDir)NuGetBuild" MetadataAssembly="$(OutputPath)\NServiceBus.Wire.dll" />
-  </Target>
-  <Import Project="..\packages\PepitaPackage.1.21.4\build\PepitaPackage.targets" Condition="Exists('..\packages\PepitaPackage.1.21.4\build\PepitaPackage.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\PepitaPackage.1.21.4\build\PepitaPackage.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PepitaPackage.1.21.4\build\PepitaPackage.targets'))" />
   </Target>
 </Project>
