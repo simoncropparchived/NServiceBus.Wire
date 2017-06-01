@@ -8,8 +8,8 @@
     <DocumentationFile>$(ProjectDir)bin\$(Configuration)\$(AssemblyName).xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="NServiceBus" Version="6.3.2" />
-    <PackageReference Include="Wire" Version="0.8.1" />
+    <PackageReference Include="NServiceBus" Version="6.3.3" />
+    <PackageReference Include="Wire" Version="0.8.2" />
     <PackageReference Include="PepitaPackage" Version="1.21.4" />
   </ItemGroup>
   <Target Name="NuGetBuild" AfterTargets="AfterBuild">
