@@ -5,12 +5,12 @@
     <WarningLevel>4</WarningLevel>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <DocumentationFile>$(ProjectDir)bin\$(Configuration)\$(AssemblyName).xml</DocumentationFile>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="NServiceBus" Version="6.*" />
-    <PackageReference Include="Wire" Version="0.8.*" />
-    <PackageReference Include="PepitaPackage" Version="1.*" />
+    <PackageReference Include="NServiceBus" Version="6.3.4" />
+    <PackageReference Include="Wire" Version="0.8.2" />
+    <PackageReference Include="PepitaPackage" Version="1.21.4" />
   </ItemGroup>
   <Target Name="NuGetBuild" AfterTargets="AfterBuild">
     <ItemGroup>
