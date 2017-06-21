@@ -7,6 +7,7 @@
     using Features;
     using NUnit.Framework;
 
+    [Explicit]
     public class When_sending_from_a_saga_timeout : NServiceBusAcceptanceTest
     {
         [Test]

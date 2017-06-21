@@ -5,7 +5,8 @@
     using EndpointTemplates;
     using NUnit.Framework;
 
-    public class When_registering_publishers_unobtrusive_messages_config : NServiceBusAcceptanceTest
+    [Explicit]
+    public class When_registering_publishers_unobtrusive_messages_code : NServiceBusAcceptanceTest
     {
         [Test]
         public async Task Should_deliver_event()
@@ -45,8 +46,9 @@
         {
             public Subscriber()
             {
-                EndpointSetup<DefaultServer>(c => c.Conventions().DefiningEventsAs(t => t == typeof(SomeEvent)),
-                metadata => metadata.RegisterPublisherFor<SomeEvent>(typeof(Publisher)));
+                EndpointSetup<DefaultServer>(
+                    c => c.Conventions().DefiningEventsAs(t => t == typeof(SomeEvent)),
+                    metadata => metadata.RegisterPublisherFor<SomeEvent>(typeof(Publisher)));
             }
 
             public class EventHandler : IHandleMessages<SomeEvent>

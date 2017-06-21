@@ -6,6 +6,7 @@
     using Features;
     using NUnit.Framework;
 
+    [Explicit]
     public class When_subscribing_to_multiple_publishers : NServiceBusAcceptanceTest
     {
         [Test]

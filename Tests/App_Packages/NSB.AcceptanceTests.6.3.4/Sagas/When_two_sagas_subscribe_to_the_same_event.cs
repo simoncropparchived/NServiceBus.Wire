@@ -9,7 +9,7 @@
     using NUnit.Framework;
     using Routing;
 
-    // Repro for issue  https://github.com/NServiceBus/NServiceBus/issues/1277
+    [Explicit]
     public class When_two_sagas_subscribe_to_the_same_event : NServiceBusAcceptanceTest
     {
         [Test]

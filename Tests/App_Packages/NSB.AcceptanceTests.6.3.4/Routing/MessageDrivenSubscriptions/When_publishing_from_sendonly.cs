@@ -13,6 +13,7 @@
     using Unicast.Subscriptions;
     using Unicast.Subscriptions.MessageDrivenSubscriptions;
 
+    [Explicit]
     public class When_publishing_from_sendonly : NServiceBusAcceptanceTest
     {
         [Test]

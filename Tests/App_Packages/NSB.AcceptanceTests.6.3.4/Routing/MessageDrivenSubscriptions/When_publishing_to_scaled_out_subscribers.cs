@@ -6,6 +6,7 @@
     using EndpointTemplates;
     using NUnit.Framework;
 
+    [Explicit]
     public class When_publishing_to_scaled_out_subscribers : NServiceBusAcceptanceTest
     {
        [Test]

@@ -6,6 +6,7 @@
     using Features;
     using NUnit.Framework;
 
+    [Explicit]
     public class When_multi_subscribing_to_a_polymorphic_event : NServiceBusAcceptanceTest
     {
         [Test]

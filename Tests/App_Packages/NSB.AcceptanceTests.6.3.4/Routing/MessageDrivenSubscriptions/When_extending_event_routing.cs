@@ -10,6 +10,7 @@
     using NServiceBus.Routing.MessageDrivenSubscriptions;
     using NUnit.Framework;
 
+    [Explicit]
     public class When_extending_event_routing : NServiceBusAcceptanceTest
     {
         static string PublisherEndpoint => Conventions.EndpointNamingConvention(typeof(Publisher));

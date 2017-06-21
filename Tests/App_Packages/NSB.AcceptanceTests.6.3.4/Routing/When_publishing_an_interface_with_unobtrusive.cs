@@ -8,8 +8,7 @@
     using NServiceBus.Pipeline;
     using NUnit.Framework;
 
-    [Explicit]
-    public class When_publishing_an_interface : NServiceBusAcceptanceTest
+    public class When_publishing_an_interface_with_unobtrusive : NServiceBusAcceptanceTest
     {
         [Test]
         public async Task Should_receive_event_for_non_xml()
@@ -46,7 +45,8 @@
                 EndpointSetup<DefaultPublisher>(c =>
                 {
                     c.UseSerialization<JsonSerializer>();
-                    c.Pipeline.Register("EventTypeSpy", new EventTypeSpy((Context)ScenarioContext), "EventTypeSpy");
+                    c.Conventions().DefiningEventsAs(t => t.Namespace != null && t.Name.EndsWith("Event"));
+                    c.Pipeline.Register("EventTypeSpy", typeof(EventTypeSpy), "EventTypeSpy");
                     c.OnEndpointSubscribed<Context>((s, context) =>
                     {
                         if (s.SubscriberReturnAddress.Contains("Subscriber"))
@@ -54,7 +54,7 @@
                             context.Subscribed = true;
                         }
                     });
-                });
+                }).ExcludeType<MyEvent>(); // remove that type from assembly scanning to simulate what would happen with true unobtrusive mode
             }
 
             class EventTypeSpy : IBehavior<IOutgoingLogicalMessageContext, IOutgoingLogicalMessageContext>
@@ -79,11 +79,12 @@
             public Subscriber()
             {
                 EndpointSetup<DefaultServer>(c =>
-                    {
-                        c.UseSerialization<JsonSerializer>();
-                        c.DisableFeature<AutoSubscribe>();
-                    },
-                    metadata => metadata.RegisterPublisherFor<MyEvent>(typeof(Publisher)));
+                {
+                    c.UseSerialization<JsonSerializer>();
+                    c.Conventions().DefiningEventsAs(t => t.Namespace != null && t.Name.EndsWith("Event"));
+                    c.DisableFeature<AutoSubscribe>();
+                },
+                metadata => metadata.RegisterPublisherFor<MyEvent>(typeof(Publisher)));
             }
 
             public class MyEventHandler : IHandleMessages<MyEvent>
@@ -98,7 +99,7 @@
             }
         }
 
-        public interface MyEvent : IEvent
+        public interface MyEvent
         {
         }
     }

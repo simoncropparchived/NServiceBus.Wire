@@ -7,6 +7,7 @@
     using Features;
     using NUnit.Framework;
 
+    [Explicit]
     public class When_subscribing_to_a_derived_event : NServiceBusAcceptanceTest
     {
         [Test]

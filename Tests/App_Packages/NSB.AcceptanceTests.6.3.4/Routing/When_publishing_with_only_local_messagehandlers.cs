@@ -5,6 +5,7 @@
     using EndpointTemplates;
     using NUnit.Framework;
 
+    [Explicit]
     public class When_publishing_with_only_local_messagehandlers : NServiceBusAcceptanceTest
     {
         [Test]

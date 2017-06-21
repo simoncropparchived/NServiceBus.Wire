@@ -11,7 +11,7 @@
         public bool SupportsOutbox => false;
         public IConfigureEndpointTestExecution CreateTransportConfiguration()
         {
-            return new ConfigureEndpointMsmqTransport();
+            return new ConfigureEndpointLearningTransport();
         }
 
         public IConfigureEndpointTestExecution CreatePersistenceConfiguration()

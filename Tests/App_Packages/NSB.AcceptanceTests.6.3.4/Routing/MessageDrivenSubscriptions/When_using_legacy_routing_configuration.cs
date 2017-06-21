@@ -7,6 +7,7 @@
     using Features;
     using NUnit.Framework;
 
+    [Explicit]
     public class When_using_legacy_routing_configuration : NServiceBusAcceptanceTest
     {
         [Test]

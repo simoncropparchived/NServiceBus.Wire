@@ -10,7 +10,6 @@
     using NServiceBus.Config.ConfigurationSource;
     using NServiceBus.Wire;
 
-
     public class DefaultServer : IEndpointSetupTemplate
     {
         public DefaultServer()
@@ -46,9 +45,9 @@
 
             await configuration.DefineTransport(runDescriptor, endpointConfiguration).ConfigureAwait(false);
 
+            configuration.UseSerialization<WireSerializer>();
             configuration.RegisterComponentsAndInheritanceHierarchy(runDescriptor);
 
-            configuration.UseSerialization<WireSerializer>();
             await configuration.DefinePersistence(runDescriptor, endpointConfiguration).ConfigureAwait(false);
 
             configuration.GetSettings().SetDefault("ScaleOut.UseSingleBrokerQueue", true);

@@ -9,7 +9,6 @@
     using NServiceBus.Routing;
     using NUnit.Framework;
 
-    [Explicit]
     public class When_replying_to_a_message_sent_to_specific_instance : NServiceBusAcceptanceTest
     {
         static string ReceiverEndpoint => Conventions.EndpointNamingConvention(typeof(Receiver));

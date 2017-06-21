@@ -9,45 +9,48 @@
     using NServiceBus.Routing;
     using NUnit.Framework;
 
-    public class When_subscribing_to_scaled_out_publisher : NServiceBusAcceptanceTest
+    [Explicit]
+    public class When_unsubscribing_to_scaled_out_publisher : NServiceBusAcceptanceTest
     {
         [Test]
-        public async Task Should_send_subscription_message_to_each_instance()
+        public async Task Should_send_unsubscribe_message_to_each_instance()
         {
             Requires.MessageDrivenPubSub();
 
             var context = await Scenario.Define<Context>()
                 .WithEndpoint<ScaledOutPublisher>(b => b.CustomConfig(c => c.MakeInstanceUniquelyAddressable("1")))
                 .WithEndpoint<ScaledOutPublisher>(b => b.CustomConfig(c => c.MakeInstanceUniquelyAddressable("2")))
-                .WithEndpoint<Subscriber>(b => b.When(s => s.Subscribe<MyEvent>()))
-                .Done(c => c.PublisherReceivedSubscription.Count >= 2)
+                .WithEndpoint<Unsubscriber>(b => b.When(s => s.Unsubscribe<MyEvent>()))
+                .Done(c => c.PublisherReceivedUnsubscribeMessage.Count >= 2)
                 .Run();
 
-            // each instance should receive a subscription message
-            Assert.That(context.PublisherReceivedSubscription, Does.Contain("1"));
-            Assert.That(context.PublisherReceivedSubscription, Does.Contain("2"));
-            Assert.That(context.PublisherReceivedSubscription.Count, Is.EqualTo(2));
+            // each instance should receive an unsubscribe message
+            Assert.That(context.PublisherReceivedUnsubscribeMessage, Does.Contain("1"));
+            Assert.That(context.PublisherReceivedUnsubscribeMessage, Does.Contain("2"));
+            Assert.That(context.PublisherReceivedUnsubscribeMessage.Count, Is.EqualTo(2));
         }
 
         class Context : ScenarioContext
         {
-            public List<string> PublisherReceivedSubscription { get; } = new List<string>();
+            public List<string> PublisherReceivedUnsubscribeMessage { get; } = new List<string>();
         }
 
         class ScaledOutPublisher : EndpointConfigurationBuilder
         {
             public ScaledOutPublisher()
             {
-                // store the instance discriminator of each instance receiving a subscription message:
-                EndpointSetup<DefaultServer>(c => c
-                    .OnEndpointSubscribed<Context>((subscription, context) =>
-                        context.PublisherReceivedSubscription.Add(c.GetSettings().Get<string>("EndpointInstanceDiscriminator"))));
+                // store the instance discriminator of each instance receiving a unsubscribe message:
+                EndpointSetup<DefaultServer>(c =>
+                {
+                    c.OnEndpointUnsubscribed<Context>((subscription, context) =>
+                            context.PublisherReceivedUnsubscribeMessage.Add(c.GetSettings().Get<string>("EndpointInstanceDiscriminator")));
+                });
             }
         }
 
-        class Subscriber : EndpointConfigurationBuilder
+        class Unsubscriber : EndpointConfigurationBuilder
         {
-            public Subscriber()
+            public Unsubscriber()
             {
                 EndpointSetup<DefaultServer>(
                     c =>

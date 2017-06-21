@@ -8,7 +8,6 @@
     using NUnit.Framework;
     using Routing;
 
-    //Repro for #1323
     [Explicit]
     public class When_started_by_event_from_another_saga : NServiceBusAcceptanceTest
     {

@@ -8,6 +8,7 @@
     using Features;
     using NUnit.Framework;
 
+    [Explicit]
     public class When_unsubscribing_from_event : NServiceBusAcceptanceTest
     {
         [Test]
