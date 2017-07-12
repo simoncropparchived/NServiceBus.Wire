@@ -1,26 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net452</TargetFramework>
-    <WarningLevel>4</WarningLevel>
+    <TargetFrameworks>net452;netcoreapp2.0</TargetFrameworks>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PackageId>NServiceBus.Wire</PackageId>
+    <AssemblyVersion>2.1.0</AssemblyVersion>
+    <FileVersion>2.1.0</FileVersion>
+    <InformationalVersion>$(FileVersion)</InformationalVersion>
+    <PackageVersion>$(FileVersion)-beta001</PackageVersion>
+    <Authors>Simon Cropp, Igal Tabachnik</Authors>
+    <PackageLicenseUrl>http://www.opensource.org/licenses/mit-license.php</PackageLicenseUrl>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Copyright>Copyright $([System.DateTime]::UtcNow.ToString(yyyy)) Simon Cropp. All rights reserved</Copyright>
+    <PackageTags>NServiceBus, Wire</PackageTags>
+    <PackageIconUrl>https://raw.githubusercontent.com/SimonCropp/NServiceBus.Wire/master/Icon/package_icon.png</PackageIconUrl>
+    <PackageProjectUrl>https://docs.particular.net/nuget/$(PackageId)</PackageProjectUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageFiles>C:\Code\Particular\NServiceBus.Wire\NServiceBus.Wire\bin\Debug\net452\NServiceBus.Wire.pdb</PackageFiles>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="NServiceBus" Version="6.3.4" />
-    <PackageReference Include="Wire" Version="0.8.2" />
-    <PackageReference Include="PepitaPackage" Version="1.21.4" />
+    <PackageReference Include="NServiceBus" Version="[7.0.0-*, 8.0.0)" />
+    <PackageReference Include="Wire" Version="0.8.*" />
   </ItemGroup>
-  <Target Name="NuGetBuild" AfterTargets="AfterBuild">
-    <ItemGroup>
-      <FilesToDelete Include="$(SolutionDir)NuGetBuild\**\*.*" />
-    </ItemGroup>
-    <Delete Files="@(FilesToDelete)" />
-    <Copy SourceFiles="$(OutputPath)NServiceBus.Wire.dll" DestinationFolder="$(SolutionDir)NuGetBuild\lib\net452" />
-    <Copy SourceFiles="$(OutputPath)NServiceBus.Wire.pdb" DestinationFolder="$(SolutionDir)NuGetBuild\lib\net452" />
-    <Copy SourceFiles="$(OutputPath)NServiceBus.Wire.xml" DestinationFolder="$(SolutionDir)NuGetBuild\lib\net452" />
-    <Copy SourceFiles="$(ProjectDir)NServiceBus.Wire.nuspec" DestinationFolder="$(SolutionDir)NuGetBuild" />
-    <PepitaPackage.CreatePackageTask NuGetBuildDirectory="$(SolutionDir)NuGetBuild" MetadataAssembly="$(OutputPath)\NServiceBus.Wire.dll" />
-  </Target>
 </Project>
