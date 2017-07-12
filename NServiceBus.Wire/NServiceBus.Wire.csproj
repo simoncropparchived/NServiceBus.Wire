@@ -17,7 +17,6 @@
     <PackageIconUrl>https://raw.githubusercontent.com/SimonCropp/NServiceBus.Wire/master/Icon/package_icon.png</PackageIconUrl>
     <PackageProjectUrl>https://docs.particular.net/nuget/$(PackageId)</PackageProjectUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageFiles>C:\Code\Particular\NServiceBus.Wire\NServiceBus.Wire\bin\Debug\net452\NServiceBus.Wire.pdb</PackageFiles>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="NServiceBus" Version="[7.0.0-*, 8.0.0)" />
