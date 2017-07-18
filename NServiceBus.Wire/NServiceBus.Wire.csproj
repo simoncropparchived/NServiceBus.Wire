@@ -17,9 +17,15 @@
     <PackageIconUrl>https://raw.githubusercontent.com/SimonCropp/NServiceBus.Wire/master/icon.png</PackageIconUrl>
     <PackageProjectUrl>https://docs.particular.net/nuget/$(PackageId)</PackageProjectUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);IncludePDBsInPackage</TargetsForTfmSpecificContentInPackage>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="NServiceBus" Version="[7.0.0-*, 8.0.0)" />
-    <PackageReference Include="Wire" Version="0.8.*" />
+    <PackageReference Include="Wire" Version="[0.8.0, 1.0.0)" />
   </ItemGroup>
+  <Target Name="IncludePDBsInPackage">
+    <ItemGroup>
+      <TfmSpecificPackageFile Include="$(OutputPath)\$(AssemblyName).pdb" PackagePath="lib/$(TargetFramework)" />
+    </ItemGroup>
+  </Target>
 </Project>
