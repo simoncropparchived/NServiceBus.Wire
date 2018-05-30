@@ -6,7 +6,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="NServiceBus" Version="[7.0.0-*, 8.0.0)" />
+    <PackageReference Include="NServiceBus" Version="7.0.1" />
     <PackageReference Include="Wire" Version="[0.8.2, 1.0.0)" />
   </ItemGroup>
 </Project>

@@ -6,13 +6,11 @@ using Wire;
 
 namespace NServiceBus
 {
-
     /// <summary>
     /// Extensions for <see cref="SerializationExtensions{T}"/> to manipulate how messages are serialized via Wire.
     /// </summary>
     public static class WireConfigurationExtensions
     {
-
         /// <summary>
         /// Configures the <see cref="SerializerOptions"/> to use.
         /// </summary>

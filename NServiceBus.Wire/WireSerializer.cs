@@ -1,10 +1,10 @@
-﻿namespace NServiceBus.Wire
-{
-    using System;
-    using MessageInterfaces;
-    using Serialization;
-    using Settings;
+﻿using System;
+using NServiceBus.MessageInterfaces;
+using NServiceBus.Serialization;
+using NServiceBus.Settings;
 
+namespace NServiceBus.Wire
+{
     /// <summary>
     /// Defines the capabilities of the Wire serializer
     /// </summary>
@@ -15,6 +15,7 @@
         /// </summary>
         public override Func<IMessageMapper, IMessageSerializer> Configure(ReadOnlySettings settings)
         {
+            Guard.AgainstNull(settings, nameof(settings));
             return mapper =>
             {
                 var options = settings.GetOptions();

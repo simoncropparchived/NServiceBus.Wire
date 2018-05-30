@@ -14,8 +14,6 @@
     <PackageProjectUrl>https://docs.particular.net/nuget/$(PackageId)</PackageProjectUrl>
     <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);IncludePDBsInPackage</TargetsForTfmSpecificContentInPackage>
     <PackageOutputPath>..\nugets</PackageOutputPath>
-    <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>../key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <Target Name="IncludePDBsInPackage">
     <ItemGroup>

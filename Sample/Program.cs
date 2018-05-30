@@ -5,33 +5,21 @@ using NServiceBus.Wire;
 
 class Program
 {
-    static void Main()
+    static async Task Main()
     {
-        AsyncMain().GetAwaiter().GetResult();
-    }
+        var configuration = new EndpointConfiguration("WireSerializerSample");
+        configuration.UseSerialization<WireSerializer>();
+        configuration.UseTransport<LearningTransport>();
+        configuration.EnableInstallers();
 
-    static async Task AsyncMain()
-    {
-        var endpointConfiguration = new EndpointConfiguration("WireSerializerSample");
-        endpointConfiguration.UseSerialization<WireSerializer>();
-        endpointConfiguration.EnableInstallers();
-        endpointConfiguration.SendFailedMessagesTo("error");
-        endpointConfiguration.UsePersistence<InMemoryPersistence>();
-
-        var endpoint = await Endpoint.Start(endpointConfiguration);
-        try
+        var endpoint = await Endpoint.Start(configuration);
+        var message = new MyMessage
         {
-            var message = new MyMessage
-            {
-                DateSend = DateTime.Now,
-            };
-            await endpoint.SendLocal(message);
-            Console.WriteLine("\r\nPress any key to stop program\r\n");
-            Console.Read();
-        }
-        finally
-        {
-            await endpoint.Stop();
-        }
+            DateSend = DateTime.Now,
+        };
+        await endpoint.SendLocal(message);
+        Console.WriteLine("\r\nPress any key to stop program\r\n");
+        Console.Read();
+        await endpoint.Stop();
     }
 }
