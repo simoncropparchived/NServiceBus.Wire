@@ -1,12 +1,12 @@
-![Icon](https://raw.githubusercontent.com/hmemcpy/NServiceBus.Wire/master/icon.png)
+![Icon](https://raw.githubusercontent.com/NServiceBusExtensions/NServiceBus.Wire/master/icon.png)
 
 
 # NServiceBus.Wire
 
-Add support for [NServiceBus](http://particular.net/NServiceBus) message serialization via [Wire](https://github.com/rogeralsing/Wire) binary serializer.
+Add support for [NServiceBus](https://particular.net/nservicebus) message serialization via [Wire](https://github.com/rogeralsing/Wire) binary serializer.
 
 
-## The NuGet package  [![NuGet Status](http://img.shields.io/nuget/v/NServiceBus.Wire.svg?style=flat)](https://www.nuget.org/packages/NServiceBus.Wire/)
+## The NuGet package [![NuGet Status](http://img.shields.io/nuget/v/NServiceBus.Wire.svg?style=flat)](https://www.nuget.org/packages/NServiceBus.Wire/)
 
 https://www.nuget.org/packages/NServiceBus.Wire
 
@@ -15,7 +15,7 @@ https://www.nuget.org/packages/NServiceBus.Wire
 
 ## Documentation
 
-https://docs.particular.net/nservicebus/serialization/wire
+https://docs.particular.net/nuget/NServiceBus.Wire
 
 
 ## Icon
