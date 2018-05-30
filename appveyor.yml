@@ -1,6 +1,4 @@
 image: Visual Studio 2017
-services:
-- mssql2017
 configuration: Release
 platform: Any CPU
 install:
@@ -11,7 +9,7 @@ build:
   verbosity: minimal
 test_script:
 - cmd: >-
-    %xunit20%\xunit.console Attachments.Sql.Tests\bin\Release\net47\Attachments.Sql.Tests.dll  Attachments.FileShare.Tests\bin\Release\net47\Attachments.FileShare.Tests.dll
+    %xunit20%\xunit.console Tests\bin\Release\net47\Tests.dll
 
 artifacts:
 - path: nugets\**\*.nupkg

@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net462</TargetFramework>
+    <TargetFramework>net47</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Xunit" Version="2.3.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
-    <ProjectReference Include="..\NServiceBus.Wire\NServiceBus.Wire.csproj"/>
+    <ProjectReference Include="..\NServiceBus.Wire\NServiceBus.Wire.csproj" />
   </ItemGroup>
 </Project>
