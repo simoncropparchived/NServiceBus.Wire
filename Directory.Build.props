@@ -11,6 +11,7 @@
     <PackageTags>NServiceBus, Wire</PackageTags>
     <PackageIconUrl>https://raw.githubusercontent.com/NServiceBusExtensions/NServiceBus.Wire/master/icon.png</PackageIconUrl>
     <PackageProjectUrl>https://docs.particular.net/nuget/NServiceBus.Wire</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/NServiceBusExtensions/NServiceBus.Wire</RepositoryUrl>
     <PackageOutputPath>..\nugets</PackageOutputPath>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <DebugType>embedded</DebugType>
