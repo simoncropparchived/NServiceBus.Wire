@@ -1,9 +1,4 @@
-![Icon](https://raw.githubusercontent.com/NServiceBusExtensions/NServiceBus.Wire/master/icon.png)
-
-
-# NServiceBus.Wire
-
-Add support for [NServiceBus](https://particular.net/nservicebus) message serialization via [Wire](https://github.com/rogeralsing/Wire) binary serializer.
+<img src="https://raw.github.com/NServiceBusExtensions/NServiceBus.Wire/master/src/icon.png" height="25px"> Add support for [NServiceBus](https://particular.net/nservicebus) message serialization via [Wire](https://github.com/rogeralsing/Wire) binary serializer.
 
 
 <!--- StartOpenCollectiveBackers -->
