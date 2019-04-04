@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26403.7
-MinimumVisualStudioVersion = 15.0.26403.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28721.148
+MinimumVisualStudioVersion = 16.0.28721.148
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NServiceBus.Wire", "NServiceBus.Wire\NServiceBus.Wire.csproj", "{29ED7A0C-9A61-4416-A020-AAB1E1C5C743}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample", "Sample\Sample.csproj", "{D1C231FA-FFF6-4B8A-AFEE-DABD7F8324E3}"
