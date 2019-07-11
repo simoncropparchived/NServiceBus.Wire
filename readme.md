@@ -29,8 +29,6 @@ Thanks to all the backing developers! Support this project by [becoming a patron
 
 https://www.nuget.org/packages/NServiceBus.Wire
 
-    PM> Install-Package NServiceBus.Wire
-
 
 ## Documentation
 
