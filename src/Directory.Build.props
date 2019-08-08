@@ -4,5 +4,6 @@
     <Version>4.0.1</Version>
     <PackageTags>NServiceBus, Wire</PackageTags>
     <PackageProjectUrl>https://docs.particular.net/nuget/NServiceBus.Wire</PackageProjectUrl>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
 </Project>
