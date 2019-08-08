@@ -37,4 +37,4 @@ https://docs.particular.net/nuget/NServiceBus.Wire
 
 ## Icon
 
-[Insulated Wire](https://thenounproject.com/term/insulated-wire/116162) designed by [Arthur Shlain](https://thenounproject.com/ArtZ91/) from the [Noun Project](https://thenounproject.com).
+[Insulated Wire](https://thenounproject.com/term/insulated-wire/116162) designed by [Arthur Shlain](https://thenounproject.com/ArtZ91/) from [The Noun Project](https://thenounproject.com).
