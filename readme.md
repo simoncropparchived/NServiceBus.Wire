@@ -1,4 +1,4 @@
-<img src="https://raw.github.com/NServiceBusExtensions/NServiceBus.Wire/master/src/icon.png" height="25px"> Add support for [NServiceBus](https://particular.net/nservicebus) message serialization via [Wire](https://github.com/rogeralsing/Wire) binary serializer.
+<img src="/src/icon.png" height="25px"> Add support for [NServiceBus](https://particular.net/nservicebus) message serialization via [Wire](https://github.com/rogeralsing/Wire) binary serializer.
 
 <!--- StartOpenCollectiveBackers -->
 
@@ -25,9 +25,9 @@ Thanks to all the backing developers! Support this project by [becoming a patron
 
 <a href="#" id="endofbacking"></a>
 
-## The NuGet package [![NuGet Status](http://img.shields.io/nuget/v/NServiceBus.Wire.svg)](https://www.nuget.org/packages/NServiceBus.Wire/)
+## NuGet package
 
-https://www.nuget.org/packages/NServiceBus.Wire
+https://www.nuget.org/packages/NServiceBus.Wire [![NuGet Status](http://img.shields.io/nuget/v/NServiceBus.Wire.svg)](https://www.nuget.org/packages/NServiceBus.Wire/)
 
 
 ## Documentation
@@ -37,4 +37,4 @@ https://docs.particular.net/nuget/NServiceBus.Wire
 
 ## Icon
 
-Icon [Insulated Wire](https://thenounproject.com/term/insulated-wire/116162) (CC BY 3.0) designed by Arthur Shlain from the [Noun Project](http://www.thenounproject.com).
+[Insulated Wire](https://thenounproject.com/term/insulated-wire/116162) designed by [Arthur Shlain](https://thenounproject.com/ArtZ91/) from the [Noun Project](https://thenounproject.com).
