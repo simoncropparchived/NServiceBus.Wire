@@ -27,7 +27,7 @@ Thanks to all the backing developers! Support this project by [becoming a patron
 
 ## NuGet package
 
-https://www.nuget.org/packages/NServiceBus.Wire [![NuGet Status](http://img.shields.io/nuget/v/NServiceBus.Wire.svg)](https://www.nuget.org/packages/NServiceBus.Wire/)
+https://www.nuget.org/packages/NServiceBus.Wire [![NuGet Status](https://img.shields.io/nuget/v/NServiceBus.Wire.svg)](https://www.nuget.org/packages/NServiceBus.Wire/)
 
 
 ## Documentation
