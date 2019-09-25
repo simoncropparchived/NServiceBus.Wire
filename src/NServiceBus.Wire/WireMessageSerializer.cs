@@ -40,7 +40,7 @@ class WireMessageSerializer : IMessageSerializer
         serializer.Serialize(message, stream);
     }
 
-    public object[] Deserialize(Stream stream, IList<Type> messageTypes = null)
+    public object[] Deserialize(Stream stream, IList<Type> messageTypes)
     {
         return new[] {serializer.Deserialize(stream)};
     }
