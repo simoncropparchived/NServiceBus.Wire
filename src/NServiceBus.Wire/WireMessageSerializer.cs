@@ -4,7 +4,8 @@ using System.IO;
 using NServiceBus.Serialization;
 using Wire;
 
-class WireMessageSerializer : IMessageSerializer
+class WireMessageSerializer :
+    IMessageSerializer
 {
     Serializer serializer;
 
