@@ -8,7 +8,8 @@ namespace NServiceBus.Wire
     /// <summary>
     /// Defines the capabilities of the Wire serializer
     /// </summary>
-    public class WireSerializer : SerializationDefinition
+    public class WireSerializer :
+        SerializationDefinition
     {
         /// <summary>
         /// <see cref="SerializationDefinition.Configure"/>

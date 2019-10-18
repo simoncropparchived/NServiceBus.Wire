@@ -1,4 +1,11 @@
-<img src="/src/icon.png" height="25px"> Add support for [NServiceBus](https://particular.net/nservicebus) message serialization via [Wire](https://github.com/rogeralsing/Wire) binary serializer.
+# <img src="/src/icon.png" height="30px"> NServiceBus.Wire
+
+[![Build status](https://ci.appveyor.com/api/projects/status/sjv1mlf4s3iv6iba/branch/master?svg=true)](https://ci.appveyor.com/project/SimonCropp/NServiceBus.Wire)
+[![NuGet Status](https://img.shields.io/nuget/v/NServiceBus.Wire.svg?cacheSeconds=86400)](https://www.nuget.org/packages/NServiceBus.Wire/)
+
+Add support for [NServiceBus](https://particular.net/nservicebus) message serialization via [Wire](https://github.com/rogeralsing/Wire) binary serializer.
+
+toc
 
 <!--- StartOpenCollectiveBackers -->
 
@@ -25,10 +32,6 @@ Thanks to all the backing developers! Support this project by [becoming a patron
 
 <a href="#" id="endofbacking"></a>
 
-## NuGet package
-
-https://www.nuget.org/packages/NServiceBus.Wire [![NuGet Status](https://img.shields.io/nuget/v/NServiceBus.Wire.svg)](https://www.nuget.org/packages/NServiceBus.Wire/)
-
 
 ## Usage
 
@@ -49,7 +52,6 @@ Instead, use a public class with the same contract as the interface. The class c
 Customizes the instance of `SerializerOptions` used for serialization.
 
 snippet: WireCustomSettings
-
 
 
 ### Custom content key
