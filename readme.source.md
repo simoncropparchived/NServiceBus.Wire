@@ -34,7 +34,14 @@ https://www.nuget.org/packages/NServiceBus.Wire [![NuGet Status](https://img.shi
 
 snippet: WireSerialization
 
-include: interface-not-supported
+This serializer does not support [messages defined as interfaces](https://docs.particular.net/nservicebus/messaging/messages-as-interfaces.md). If an explicit interface is sent, an exception will be thrown with the following message:
+
+```
+Interface based message are not supported.
+Create a class that implements the desired interface
+```
+
+Instead, use a public class with the same contract as the interface. The class can optionally implement any required interfaces.
 
 
 ### Custom settings
@@ -44,9 +51,17 @@ Customizes the instance of `SerializerOptions` used for serialization.
 snippet: WireCustomSettings
 
 
-include: custom-contenttype-key
+
+### Custom content key
+
+When using [additional deserializers](https://docs.particular.net/nservicebus/serialization/#specifying-additional-deserializers) or transitioning between different versions of the same serializer it can be helpful to take explicit control over the content type a serializer passes to NServiceBus (to be used for the [ContentType header](https://docs.particular.net/nservicebus/messaging/headers.md#serialization-headers-nservicebus-contenttype)).
 
 snippet: WireContentTypeKey
+
+
+## Release Notes
+
+See [closed milestones](../../milestones?state=closed).
 
 
 ## Icon
