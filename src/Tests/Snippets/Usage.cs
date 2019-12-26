@@ -4,32 +4,32 @@ using Wire;
 
 class Usage
 {
-    Usage(EndpointConfiguration endpointConfiguration)
+    Usage(EndpointConfiguration configuration)
     {
         #region WireSerialization
 
-        endpointConfiguration.UseSerialization<WireSerializer>();
+        configuration.UseSerialization<WireSerializer>();
 
         #endregion
     }
 
-    void CustomSettings(EndpointConfiguration endpointConfiguration)
+    void CustomSettings(EndpointConfiguration configuration)
     {
         #region WireCustomSettings
 
         var options = new SerializerOptions(
             preserveObjectReferences: true);
-        var serialization = endpointConfiguration.UseSerialization<WireSerializer>();
+        var serialization = configuration.UseSerialization<WireSerializer>();
         serialization.Options(options);
 
         #endregion
     }
 
-    void ContentTypeKey(EndpointConfiguration endpointConfiguration)
+    void ContentTypeKey(EndpointConfiguration configuration)
     {
         #region WireContentTypeKey
 
-        var serialization = endpointConfiguration.UseSerialization<WireSerializer>();
+        var serialization = configuration.UseSerialization<WireSerializer>();
         serialization.ContentTypeKey("custom-key");
 
         #endregion
