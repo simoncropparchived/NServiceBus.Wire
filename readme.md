@@ -20,9 +20,7 @@ Add support for [NServiceBus](https://particular.net/nservicebus) message serial
     * [Patrons](#patrons)
   * [Usage](#usage)
     * [Custom settings](#custom-settings)
-    * [Custom content key](#custom-content-key)
-<!-- endtoc -->
-
+    * [Custom content key](#custom-content-key)<!-- endtoc -->
 
 <!--- StartOpenCollectiveBackers -->
 
@@ -31,7 +29,7 @@ Add support for [NServiceBus](https://particular.net/nservicebus) message serial
 
 ## Community backed
 
-**It is expected that all developers [become a Patron](https://opencollective.com/nservicebusextensions/order/6976) to use any of these libraries. [Go to licensing FAQ](https://github.com/NServiceBusExtensions/Home/blob/master/readme.md#licensingpatron-faq)**
+**It is expected that all developers [become a Patron](https://opencollective.com/nservicebusextensions/order/6976) to use any of these libraries. [Go to licensing FAQ](https://github.com/NServiceBusExtensions/Home/#licensingpatron-faq)**
 
 
 ### Sponsors
@@ -50,14 +48,19 @@ Thanks to all the backing developers! Support this project by [becoming a patron
 <a href="#" id="endofbacking"></a>
 
 
+## NuGet package
+
+https://nuget.org/packages/NServiceBus.Wire/
+
+
 ## Usage
 
 <!-- snippet: WireSerialization -->
 <a id='snippet-wireserialization'/></a>
 ```cs
-endpointConfiguration.UseSerialization<WireSerializer>();
+configuration.UseSerialization<WireSerializer>();
 ```
-<sup>[snippet source](/src/Tests/Snippets/Usage.cs#L9-L13) / [anchor](#snippet-wireserialization)</sup>
+<sup><a href='/src/Tests/Snippets/Usage.cs#L9-L13' title='File snippet `wireserialization` was extracted from'>snippet source</a> | <a href='#snippet-wireserialization' title='Navigate to start of snippet `wireserialization`'>anchor</a></sup>
 <!-- endsnippet -->
 
 This serializer does not support [messages defined as interfaces](https://docs.particular.net/nservicebus/messaging/messages-as-interfaces). If an explicit interface is sent, an exception will be thrown with the following message:
@@ -79,10 +82,10 @@ Customizes the instance of `SerializerOptions` used for serialization.
 ```cs
 var options = new SerializerOptions(
     preserveObjectReferences: true);
-var serialization = endpointConfiguration.UseSerialization<WireSerializer>();
+var serialization = configuration.UseSerialization<WireSerializer>();
 serialization.Options(options);
 ```
-<sup>[snippet source](/src/Tests/Snippets/Usage.cs#L18-L25) / [anchor](#snippet-wirecustomsettings)</sup>
+<sup><a href='/src/Tests/Snippets/Usage.cs#L18-L25' title='File snippet `wirecustomsettings` was extracted from'>snippet source</a> | <a href='#snippet-wirecustomsettings' title='Navigate to start of snippet `wirecustomsettings`'>anchor</a></sup>
 <!-- endsnippet -->
 
 
@@ -93,10 +96,10 @@ When using [additional deserializers](https://docs.particular.net/nservicebus/se
 <!-- snippet: WireContentTypeKey -->
 <a id='snippet-wirecontenttypekey'/></a>
 ```cs
-var serialization = endpointConfiguration.UseSerialization<WireSerializer>();
+var serialization = configuration.UseSerialization<WireSerializer>();
 serialization.ContentTypeKey("custom-key");
 ```
-<sup>[snippet source](/src/Tests/Snippets/Usage.cs#L30-L35) / [anchor](#snippet-wirecontenttypekey)</sup>
+<sup><a href='/src/Tests/Snippets/Usage.cs#L30-L35' title='File snippet `wirecontenttypekey` was extracted from'>snippet source</a> | <a href='#snippet-wirecontenttypekey' title='Navigate to start of snippet `wirecontenttypekey`'>anchor</a></sup>
 <!-- endsnippet -->
 
 
