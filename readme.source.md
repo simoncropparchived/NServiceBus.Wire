@@ -1,6 +1,6 @@
 # <img src="/src/icon.png" height="30px"> NServiceBus.Wire
 
-[![Build status](https://ci.appveyor.com/api/projects/status/sjv1mlf4s3iv6iba/branch/master?svg=true)](https://ci.appveyor.com/project/SimonCropp/nservicebus-Wire)
+[![Build status](https://ci.appveyor.com/api/projects/status/sjv1mlf4s3iv6iba/branch/master?svg=true)](https://ci.appveyor.com/project/SimonCropp/nservicebus-wire)
 [![NuGet Status](https://img.shields.io/nuget/v/NServiceBus.Wire.svg)](https://www.nuget.org/packages/NServiceBus.Wire/)
 
 Add support for [NServiceBus](https://particular.net/nservicebus) message serialization via [Wire](https://github.com/rogeralsing/Wire) binary serializer.
