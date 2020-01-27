@@ -18,7 +18,8 @@ Add support for [NServiceBus](https://particular.net/nservicebus) message serial
   * [Community backed](#community-backed)
   * [Usage](#usage)
     * [Custom settings](#custom-settings)
-    * [Custom content key](#custom-content-key)<!-- endtoc -->
+    * [Custom content key](#custom-content-key)
+  * [Security contact information](#security-contact-information)<!-- endtoc -->
 
 <!--- StartOpenCollectiveBackers -->
 
@@ -93,9 +94,9 @@ serialization.ContentTypeKey("custom-key");
 <!-- endsnippet -->
 
 
-## Release Notes
+## Security contact information
 
-See [closed milestones](../../milestones?state=closed).
+To report a security vulnerability, use the [Tidelift security contact](https://tidelift.com/security). Tidelift will coordinate the fix and disclosure.
 
 
 ## Icon
