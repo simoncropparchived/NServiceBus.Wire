@@ -4,12 +4,5 @@
     <Version>4.0.4</Version>
     <PackageTags>NServiceBus, Wire</PackageTags>
     <SignAssembly>false</SignAssembly>
-    <PackageLicenseFile>license.txt</PackageLicenseFile>
-    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
   </PropertyGroup>
-  <ItemGroup>
-    <None Include="$(MSBuildThisFileFullPath)\..\..\license.txt"
-          Pack="true"
-          PackagePath="license.txt"/>
-  </ItemGroup>
 </Project>
