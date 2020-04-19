@@ -2,6 +2,7 @@
 <Project>
   <PropertyGroup>
     <Version>4.0.4</Version>
+    <AssemblyVersion>1.0.0</AssemblyVersion>
     <PackageTags>NServiceBus, Wire</PackageTags>
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
