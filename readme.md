@@ -63,7 +63,7 @@ https://nuget.org/packages/NServiceBus.Wire/
 ## Usage
 
 <!-- snippet: WireSerialization -->
-<a id='snippet-wireserialization'/></a>
+<a id='snippet-wireserialization'></a>
 ```cs
 configuration.UseSerialization<WireSerializer>();
 ```
@@ -85,7 +85,7 @@ Instead, use a public class with the same contract as the interface. The class c
 Customizes the instance of `SerializerOptions` used for serialization.
 
 <!-- snippet: WireCustomSettings -->
-<a id='snippet-wirecustomsettings'/></a>
+<a id='snippet-wirecustomsettings'></a>
 ```cs
 var options = new SerializerOptions(
     preserveObjectReferences: true);
@@ -101,7 +101,7 @@ serialization.Options(options);
 When using [additional deserializers](https://docs.particular.net/nservicebus/serialization/#specifying-additional-deserializers) or transitioning between different versions of the same serializer it can be helpful to take explicit control over the content type a serializer passes to NServiceBus (to be used for the [ContentType header](https://docs.particular.net/nservicebus/messaging/headers#serialization-headers-nservicebus-contenttype)).
 
 <!-- snippet: WireContentTypeKey -->
-<a id='snippet-wirecontenttypekey'/></a>
+<a id='snippet-wirecontenttypekey'></a>
 ```cs
 var serialization = configuration.UseSerialization<WireSerializer>();
 serialization.ContentTypeKey("custom-key");
