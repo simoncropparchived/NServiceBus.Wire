@@ -22,7 +22,7 @@ Add support for [NServiceBus](https://particular.net/nservicebus) message serial
   * [Usage](#usage)
     * [Custom settings](#custom-settings)
     * [Custom content key](#custom-content-key)
-  * [Security contact information](#security-contact-information)<!-- endtoc -->
+  * [Security contact information](#security-contact-information)<!-- endToc -->
 
 <!--- StartOpenCollectiveBackers -->
 
@@ -68,7 +68,7 @@ https://nuget.org/packages/NServiceBus.Wire/
 configuration.UseSerialization<WireSerializer>();
 ```
 <sup><a href='/src/Tests/Snippets/Usage.cs#L9-L13' title='File snippet `wireserialization` was extracted from'>snippet source</a> | <a href='#snippet-wireserialization' title='Navigate to start of snippet `wireserialization`'>anchor</a></sup>
-<!-- endsnippet -->
+<!-- endSnippet -->
 
 This serializer does not support [messages defined as interfaces](https://docs.particular.net/nservicebus/messaging/messages-as-interfaces). If an explicit interface is sent, an exception will be thrown with the following message:
 
@@ -93,7 +93,7 @@ var serialization = configuration.UseSerialization<WireSerializer>();
 serialization.Options(options);
 ```
 <sup><a href='/src/Tests/Snippets/Usage.cs#L18-L25' title='File snippet `wirecustomsettings` was extracted from'>snippet source</a> | <a href='#snippet-wirecustomsettings' title='Navigate to start of snippet `wirecustomsettings`'>anchor</a></sup>
-<!-- endsnippet -->
+<!-- endSnippet -->
 
 
 ### Custom content key
@@ -107,7 +107,7 @@ var serialization = configuration.UseSerialization<WireSerializer>();
 serialization.ContentTypeKey("custom-key");
 ```
 <sup><a href='/src/Tests/Snippets/Usage.cs#L30-L35' title='File snippet `wirecontenttypekey` was extracted from'>snippet source</a> | <a href='#snippet-wirecontenttypekey' title='Navigate to start of snippet `wirecontenttypekey`'>anchor</a></sup>
-<!-- endsnippet -->
+<!-- endSnippet -->
 
 
 ## Security contact information
