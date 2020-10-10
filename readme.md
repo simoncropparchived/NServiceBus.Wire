@@ -63,11 +63,11 @@ https://nuget.org/packages/NServiceBus.Wire/
 ## Usage
 
 <!-- snippet: WireSerialization -->
-<a id='08ad9ba1'></a>
+<a id='wireserialization'></a>
 ```cs
 configuration.UseSerialization<WireSerializer>();
 ```
-<sup><a href='/src/Tests/Snippets/Usage.cs#L9-L13' title='Snippet source file'>snippet source</a> | <a href='#08ad9ba1' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Snippets/Usage.cs#L9-L13' title='Snippet source file'>snippet source</a> | <a href='#wireserialization' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 This serializer does not support [messages defined as interfaces](https://docs.particular.net/nservicebus/messaging/messages-as-interfaces). If an explicit interface is sent, an exception will be thrown with the following message:
@@ -85,14 +85,14 @@ Instead, use a public class with the same contract as the interface. The class c
 Customizes the instance of `SerializerOptions` used for serialization.
 
 <!-- snippet: WireCustomSettings -->
-<a id='424ab2f3'></a>
+<a id='wirecustomsettings'></a>
 ```cs
 var options = new SerializerOptions(
     preserveObjectReferences: true);
 var serialization = configuration.UseSerialization<WireSerializer>();
 serialization.Options(options);
 ```
-<sup><a href='/src/Tests/Snippets/Usage.cs#L18-L25' title='Snippet source file'>snippet source</a> | <a href='#424ab2f3' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Snippets/Usage.cs#L18-L25' title='Snippet source file'>snippet source</a> | <a href='#wirecustomsettings' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -101,12 +101,12 @@ serialization.Options(options);
 When using [additional deserializers](https://docs.particular.net/nservicebus/serialization/#specifying-additional-deserializers) or transitioning between different versions of the same serializer it can be helpful to take explicit control over the content type a serializer passes to NServiceBus (to be used for the [ContentType header](https://docs.particular.net/nservicebus/messaging/headers#serialization-headers-nservicebus-contenttype)).
 
 <!-- snippet: WireContentTypeKey -->
-<a id='e77692ce'></a>
+<a id='wirecontenttypekey'></a>
 ```cs
 var serialization = configuration.UseSerialization<WireSerializer>();
 serialization.ContentTypeKey("custom-key");
 ```
-<sup><a href='/src/Tests/Snippets/Usage.cs#L30-L35' title='Snippet source file'>snippet source</a> | <a href='#e77692ce' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Snippets/Usage.cs#L30-L35' title='Snippet source file'>snippet source</a> | <a href='#wirecontenttypekey' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
