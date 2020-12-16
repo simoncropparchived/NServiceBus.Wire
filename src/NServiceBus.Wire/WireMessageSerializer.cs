@@ -9,7 +9,7 @@ class WireMessageSerializer :
 {
     Serializer serializer;
 
-    public WireMessageSerializer(string contentType, SerializerOptions options)
+    public WireMessageSerializer(string? contentType, SerializerOptions? options)
     {
         if (options == null)
         {
